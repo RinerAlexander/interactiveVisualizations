@@ -9,7 +9,13 @@ d3.json("samples.json").then(function(data) {
             .attr("value",name));
 
     dropdownMenu.on("change",function(){
-        console.log(this.value);
+        mData=data.metadata.filter(entry => entry.id==this.value);
+        mData=mData[0];
+        console.log(mData);
+        var demaInfo = d3.select("#sample-metadata");
+        Object.entries(mData).forEach(([i,d])=>demaInfo.append("p")
+            .text(`${i}: ${d}`));
     });
+
 });
 

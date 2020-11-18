@@ -23,16 +23,16 @@ function updatePage(patient){
         //Collect variables for graphs
         var sData=data.samples.filter(entry => entry.id==patient);
         sData=sData[0];
-        var values=sData.sample_values.slice(0,10);
-        var ids=sData.otu_ids.map(entry => String(entry)).slice(0,10);
-        var labels=sData.otu_labels.slice(0,10);
+        var values=sData.sample_values;
+        var ids=sData.otu_ids.map(entry => String(entry));
+        var labels=sData.otu_labels;
 
         //bar graph
         var trace1 = {
-            x:ids,
-            y:values,
+            x:ids.slice(0,10),
+            y:values.slice(0,10),
             type:"bar",
-            text:labels
+            text:labels.slice(0,10)
         };
         var input=[trace1];
 

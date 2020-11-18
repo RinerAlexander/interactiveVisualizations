@@ -28,7 +28,7 @@ d3.json("samples.json").then(function(data) {
         console.log(values,ids);
 
         trace1 = {
-            x:labels,
+            x:ids,
             y:values,
             type:"bar"
         };
@@ -36,7 +36,8 @@ d3.json("samples.json").then(function(data) {
         input=[trace1]
 
         var layout = {
-            title: "'Bar' Chart"
+            title: "'Bar' Chart",
+            xaxis:{type:"category"}
           };
           
         Plotly.newPlot("bar", input, layout);

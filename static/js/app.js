@@ -1,12 +1,5 @@
 var dropdownMenu = d3.select("#selDataset");
 
-//Add id's to dropdown menu
-d3.json("samples.json").then(function(data) {
-    data.names.forEach(name=>dropdownMenu.append("option")
-        .text(`${name}`)
-        .attr("value",name));
-});
-
 function updatePage(patient){
     d3.json("samples.json").then(function(data) {
     //Change info/ graphs when a selection is made
@@ -71,9 +64,11 @@ dropdownMenu.on("change",function(){
 });
 
 //Initilize page
+//Add id's to dropdown menu
 d3.json("samples.json").then(function(data) {
     data.names.forEach(name=>dropdownMenu.append("option")
         .text(`${name}`)
         .attr("value",name));
 });
+//make initial graphs
 updatePage(940);
